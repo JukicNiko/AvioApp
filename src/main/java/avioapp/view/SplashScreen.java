@@ -6,6 +6,8 @@
 package avioapp.view;
 
 import avioapp.controller.ObradaPutnik;
+import avioapp.utility.HibernateUtil;
+import org.hibernate.Session;
 
 /**
  *
@@ -24,17 +26,20 @@ public class SplashScreen extends javax.swing.JFrame {
 
     }
 
-    private class Ucitavanje extends Thread {
+    private class Ucitavanje extends Thread{
 
         @Override
         public void run() {
-            if (new ObradaPutnik().getEntiteti().size() > 0) {
+         
+            Session s = HibernateUtil.getSession();
+            if(s.getMetamodel().getEntities().size()>0){
                 new Autorizacija().setVisible(true);
                 dispose();
             }
-
         }
-
+        
+        
+        
     }
 
     /**

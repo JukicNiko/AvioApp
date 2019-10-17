@@ -21,11 +21,8 @@ import avioapp.view.SplashScreen;
 public class Start {
     public static void main(String[] args) {
         //HibernateUtil.getSession();
-        //new SplashScreen().setVisible(true);
-        //new FormaPutnici().setVisible(true);
-        new Izbornik().setVisible(true);
-        //TestOperater.izvedi();
-        //new SplashScreen().setVisible(true);
-        //new FormaAvioni().setVisible(true);
+        new SplashScreen().setVisible(true);
+        //new Izbornik().setVisible(true);
+        //TestOperater.test();
     }
 }

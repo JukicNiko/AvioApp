@@ -254,7 +254,7 @@ public class FormaAvioni extends ProjektView<Avion> {
             return;
         }
         DefaultListModel<Avion> model = new DefaultListModel<>();
-        obrada.getProizvođač(txtUvjet.getText().trim()).forEach((avion) -> {
+        obrada.getAvioni(txtUvjet.getText().trim()).forEach((avion) -> {
             model.addElement(avion);
         });
         lista.setModel(model);

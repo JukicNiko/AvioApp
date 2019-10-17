@@ -16,10 +16,11 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class TestOperater {
     
-    public static void izvedi (){
+    public static void test (){
     Operater o = new Operater();
     o.setIme("Niko");
     o.setPrezime("Jukić");
+    o.setTelefon("0916013254");
     o.setEmail("niko.jukic@gmail.com");
     o.setLozinka(BCrypt.hashpw("123", BCrypt.gensalt()));
     

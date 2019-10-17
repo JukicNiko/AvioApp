@@ -31,9 +31,9 @@ public class ObradaAvion extends Obrada<Avion> {
         return session.createQuery("from Avion").list();
     }
 
-    public List<Avion> getProizvođač(String uvjet) {
+    public List<Avion> getAvioni(String uvjet) {
         return session.createQuery("from Avion a "
-                + " where a.proizvođač like :uvjet or ")
+                + " where a.proizvođač like :uvjet")
                 .setParameter("uvjet", "%" + uvjet + "%")
                 .setMaxResults(20)
                 .list();
