@@ -1,11 +1,7 @@
 package avioapp;
 
 import avioapp.test.TestOperater;
-import avioapp.test.TestPutnik;
 import avioapp.utility.HibernateUtil;
-import avioapp.view.FormaAvioni;
-import avioapp.view.FormaPutnici;
-import avioapp.view.Izbornik;
 import avioapp.view.SplashScreen;
 
 /*
@@ -22,7 +18,6 @@ public class Start {
     public static void main(String[] args) {
         //HibernateUtil.getSession();
         new SplashScreen().setVisible(true);
-        //new Izbornik().setVisible(true);
         //TestOperater.test();
     }
 }

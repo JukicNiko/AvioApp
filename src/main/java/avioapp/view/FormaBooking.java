@@ -30,6 +30,7 @@ public class FormaBooking extends javax.swing.JFrame {
      */
     public FormaBooking() {
         initComponents();
+        setLocationRelativeTo(null);
         obrada = new ObradaBooking();
         setTitle(Utility.getNazivAplikacije() + "Booking");
         btnTrazi.setText("\uD83D\uDD0D");

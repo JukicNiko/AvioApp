@@ -20,6 +20,7 @@ public class Izbornik extends javax.swing.JFrame {
      */
     public Izbornik() {
         initComponents();
+        setLocationRelativeTo(null);
         setTitle(Utility.getNazivAplikacije());
         new Vrijeme().start();
     }

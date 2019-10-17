@@ -22,6 +22,7 @@ public class FormaAvioni extends ProjektView<Avion> {
 
     public FormaAvioni() {
         initComponents();
+        setLocationRelativeTo(null);
         obrada = new ObradaAvion();
         setTitle(Utility.getNazivAplikacije() + " Avioni ");
         btnTrazi.setText("\uD83D\uDD0D");

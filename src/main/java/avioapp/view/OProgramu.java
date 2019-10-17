@@ -18,6 +18,7 @@ public class OProgramu extends javax.swing.JFrame {
      */
     public OProgramu() {
         initComponents();
+        setLocationRelativeTo(null);
         setTitle(Utility.getNazivAplikacije() + " Pomoć ");
     }
 

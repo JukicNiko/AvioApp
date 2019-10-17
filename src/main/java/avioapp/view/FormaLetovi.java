@@ -28,6 +28,7 @@ public class FormaLetovi extends ProjektView<Let> {
 
     public FormaLetovi() {
         initComponents();
+        setLocationRelativeTo(null);
         obrada = new ObradaLet();
         setTitle(Utility.getNazivAplikacije() + " Let ");
         btnTrazi.setText("\uD83D\uDD0D");
