@@ -26,7 +26,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
     public FormaPutnici() {
         initComponents();
         obrada = new ObradaPutnik();
-        setTitle(Utility.getNazivAplikacije() + " Putnik ");
+        setTitle(Utility.getNazivAplikacije() + " Putnici ");
         btnTrazi.setText("\uD83D\uDD0D");
         ucitaj();
     }

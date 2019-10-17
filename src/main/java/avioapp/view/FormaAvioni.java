@@ -23,7 +23,7 @@ public class FormaAvioni extends ProjektView<Avion> {
     public FormaAvioni() {
         initComponents();
         obrada = new ObradaAvion();
-        setTitle(Utility.getNazivAplikacije() + " Avion ");
+        setTitle(Utility.getNazivAplikacije() + " Avioni ");
         btnTrazi.setText("\uD83D\uDD0D");
         ucitaj();
     }
@@ -60,7 +60,7 @@ public class FormaAvioni extends ProjektView<Avion> {
 
         jLabel1.setText("Proizvođač");
 
-        jLabel2.setText("Broj sjedala");
+        jLabel2.setText("Količina sjedala");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

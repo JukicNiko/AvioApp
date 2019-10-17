@@ -18,6 +18,7 @@ import javax.persistence.MappedSuperclass;
 @Entity
 public class Booking extends Entitet implements Serializable {
 
+    private String naziv;
     private Integer sjedalo;
     private String prtljaga;
     private BigDecimal cijena;
@@ -32,13 +33,14 @@ public class Booking extends Entitet implements Serializable {
         super();
     }
 
-    public Booking(Integer sifra, Integer sjedalo, String prtljaga, BigDecimal cijena, Putnik putnik, Let let) {
+    public Booking(Integer sifra, String naziv, Integer sjedalo, String prtljaga, BigDecimal cijena, Putnik putnik, Let let) {
         super(sifra);
         this.sjedalo = sjedalo;
         this.prtljaga = prtljaga;
         this.cijena = cijena;
         this.putnik = putnik;
         this.let = let;
+        this.naziv = naziv;
     }
 
     public Integer getSjedalo() {
@@ -79,6 +81,14 @@ public class Booking extends Entitet implements Serializable {
 
     public void setLet(Let let) {
         this.let = let;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
     }
 
 }

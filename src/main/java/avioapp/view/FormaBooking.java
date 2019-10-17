@@ -5,17 +5,38 @@
  */
 package avioapp.view;
 
+import avioapp.controller.ObradaBooking;
+import avioapp.controller.ObradaLet;
+import avioapp.controller.ObradaPutnik;
+import avioapp.model.Booking;
+import avioapp.model.Let;
+import avioapp.model.Putnik;
+import avioapp.utility.AvioappException;
+import avioapp.utility.Utility;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
  */
 public class FormaBooking extends javax.swing.JFrame {
 
+    private ObradaBooking obrada;
+
     /**
      * Creates new form FormaBooking
      */
     public FormaBooking() {
         initComponents();
+        obrada = new ObradaBooking();
+        setTitle(Utility.getNazivAplikacije() + "Booking");
+        btnTrazi.setText("\uD83D\uDD0D");
+
+        ucitajPutnike();
+        ucitajLetove();
+        ucitaj();
     }
 
     /**
@@ -30,13 +51,16 @@ public class FormaBooking extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jsBrojSjedala = new javax.swing.JSpinner();
+        cmbLet = new javax.swing.JComboBox<>();
+        cmbPutnik = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtIme = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
@@ -46,6 +70,7 @@ public class FormaBooking extends javax.swing.JFrame {
         btnTrazi = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
+        menIzlaz = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -53,7 +78,19 @@ public class FormaBooking extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Booking"));
 
@@ -63,6 +100,8 @@ public class FormaBooking extends javax.swing.JFrame {
 
         jLabel3.setText("Broj sjedala");
 
+        jLabel4.setText("Šifra bookinga");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -70,34 +109,44 @@ public class FormaBooking extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jsBrojSjedala, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(288, 288, 288))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(cmbLet, 0, 114, Short.MAX_VALUE)
+                            .addComponent(txtIme))
+                        .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel3))
-                .addGap(196, 196, 196))
+                            .addComponent(cmbPutnik, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbPutnik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbLet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(jsBrojSjedala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         btnDodaj.setText("Dodaj");
@@ -144,6 +193,15 @@ public class FormaBooking extends javax.swing.JFrame {
         });
 
         jMenu3.setText("Izbornik");
+
+        menIzlaz.setText("Izlaz");
+        menIzlaz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menIzlazActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menIzlaz);
+
         jMenuBar2.add(jMenu3);
 
         setJMenuBar(jMenuBar2);
@@ -154,8 +212,8 @@ public class FormaBooking extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +222,7 @@ public class FormaBooking extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPromjeni)
@@ -187,11 +245,10 @@ public class FormaBooking extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
 
@@ -199,14 +256,14 @@ public class FormaBooking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
-        Let i = new Let();
+        Booking i = new Booking();
 
         spremi(i);
     }//GEN-LAST:event_btnDodajActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
 
-        Let i = lista.getSelectedValue();
+        Booking i = lista.getSelectedValue();
         if (i == null) {
             JOptionPane.showMessageDialog(null, "Prvo odaberite stavku");
             return;
@@ -216,7 +273,7 @@ public class FormaBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
-        Let i = lista.getSelectedValue();
+        Booking i = lista.getSelectedValue();
         if (i == null) {
             JOptionPane.showMessageDialog(null, "Prvo odaberite stavku");
             return;
@@ -224,13 +281,13 @@ public class FormaBooking extends javax.swing.JFrame {
         }
 
         if (JOptionPane.showConfirmDialog(
-            null, //roditelj, bude null
-            "Sigurno obrisati let" + " " + i.getImeLeta(),//tijelo dijaloga
-            "Brisanje leta", // naslov
-            JOptionPane.YES_NO_OPTION, //vrsta opcija
-            JOptionPane.QUESTION_MESSAGE) //ikona
-        == JOptionPane.NO_OPTION) {
-        return;
+                null, //roditelj, bude null
+                "Sigurno obrisati booking" + " " + i.getNaziv(),//tijelo dijaloga
+                "Brisanje bookinga", // naslov
+                JOptionPane.YES_NO_OPTION, //vrsta opcija
+                JOptionPane.QUESTION_MESSAGE) //ikona
+                == JOptionPane.NO_OPTION) {
+            return;
         }
 
         try {
@@ -247,7 +304,7 @@ public class FormaBooking extends javax.swing.JFrame {
         if (evt.getValueIsAdjusting()) {
             return;
         }
-        Let i = lista.getSelectedValue();
+        Booking i = lista.getSelectedValue();
         if (i == null) {
             return;
         }
@@ -263,12 +320,16 @@ public class FormaBooking extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Minimalno dva znaka");
             return;
         }
-        DefaultListModel<Let> model = new DefaultListModel<>();
-        obrada.getImeLeta(txtUvjet.getText().trim()).forEach((let) -> {
+        DefaultListModel<Booking> model = new DefaultListModel<>();
+        obrada.getNazivBookinga(txtUvjet.getText().trim()).forEach((let) -> {
             model.addElement(let);
         });
         lista.setModel(model);
     }//GEN-LAST:event_btnTraziActionPerformed
+
+    private void menIzlazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menIzlazActionPerformed
+        dispose();
+    }//GEN-LAST:event_menIzlazActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -276,20 +337,93 @@ public class FormaBooking extends javax.swing.JFrame {
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JButton btnTrazi;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<Let> cmbLet;
+    private javax.swing.JComboBox<Putnik> cmbPutnik;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jsBrojSjedala;
     private javax.swing.JList<Booking> lista;
+    private javax.swing.JMenuItem menIzlaz;
+    private javax.swing.JTextField txtIme;
     private javax.swing.JTextField txtUvjet;
     // End of variables declaration//GEN-END:variables
+
+    protected void spremi(Booking i) {
+
+        i.setNaziv(txtIme.getText());
+        i.setLet((Let) cmbLet.getSelectedItem());
+        i.setPutnik((Putnik) cmbPutnik.getSelectedItem());
+        i.setSjedalo((Integer) jsBrojSjedala.getValue());
+
+        try {
+            obrada.spremi(i);
+        } catch (AvioappException ex) {
+            JOptionPane.showMessageDialog(null, ex.getPoruka());
+            return;
+        }
+
+        ucitaj();
+    }
+
+    protected void ucitaj() {
+        DefaultListModel<Booking> model = new DefaultListModel<>();
+        obrada.getEntiteti().forEach(
+                (iznajmljivanje) -> {
+                    model.addElement(iznajmljivanje);
+                });
+
+        lista.setModel(model);
+        lista.repaint();
+    }
+    
+    protected boolean kontrola(Booking i) {
+       return true;
+    }
+    
+    protected void postaviVrijednosti(Booking i) {
+        txtIme.setText(i.getNaziv());
+        cmbLet.setSelectedItem(i.getLet());
+        cmbPutnik.setSelectedItem(i.getPutnik());
+        jsBrojSjedala.setValue(i.getSjedalo()== null ? "" : i.getSjedalo());               
+    }
+    
+    private void ucitajPutnike() {
+        DefaultComboBoxModel<Putnik> m = new DefaultComboBoxModel<>();
+        Putnik pu = new Putnik();
+        pu.setSifra(0);
+        pu.setIme("Odaberite");
+        pu.setPrezime("putnika");
+        m.addElement(pu);
+          
+        new ObradaPutnik().getEntiteti().forEach((putnik) -> {
+            m.addElement(putnik);
+        });
+        cmbPutnik.setModel(m);
+        
+    }
+    
+    private void ucitajLetove(){
+        DefaultComboBoxModel<Let> m = new DefaultComboBoxModel<>();
+        Let le = new Let();
+        le.setSifra(0);
+        le.setImeLeta("Odaberite let");
+        
+        m.addElement(le);
+        
+        new ObradaLet().getEntiteti().forEach((let) -> {
+        m.addElement(let);
+    });
+        cmbLet.setModel(m);
+     }
+
 }

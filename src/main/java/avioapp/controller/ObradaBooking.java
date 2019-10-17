@@ -25,9 +25,15 @@ public class ObradaBooking extends Obrada<Booking> {
 
     }
 
-    @Override
+        @Override
     public List<Booking> getEntiteti() {
         return session.createQuery("from Booking").list();
     }
-    
+    public List<Booking> getNazivBookinga(String uvjet) {
+        return session.createQuery("from Booking a "
+                + " where a.naziv like :uvjet ")
+                .setParameter("uvjet", "%" + uvjet + "%")
+                .setMaxResults(20)
+                .list();
+    }
 }
