@@ -20,7 +20,6 @@ public class TestOperater {
     Operater o = new Operater();
     o.setIme("Niko");
     o.setPrezime("Jukić");
-    o.setOib("76277207533");
     o.setEmail("niko.jukic@gmail.com");
     o.setLozinka(BCrypt.hashpw("123", BCrypt.gensalt()));
     

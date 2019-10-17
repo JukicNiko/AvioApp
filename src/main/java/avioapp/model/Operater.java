@@ -14,11 +14,16 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Operater extends Osoba implements Serializable {
-    
+
     private String lozinka;
 
     public Operater() {
         super();
+    }
+
+    public Operater(String lozinka, String ime, String prezime, Integer sifra, String email) {
+        super(ime, email, prezime, sifra);
+        this.lozinka = lozinka;
     }
 
     public String getLozinka() {
@@ -29,16 +34,4 @@ public class Operater extends Osoba implements Serializable {
         this.lozinka = lozinka;
     }
 
-    public Operater(String lozinka, String ime, String prezime, String oib, Integer sifra, String email) {
-        super(ime, email, prezime, oib, sifra);
-        this.lozinka = lozinka;
-    }
-    
-
 }
-
-   
-
-  
-   
-   

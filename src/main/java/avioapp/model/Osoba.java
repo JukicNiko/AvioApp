@@ -15,19 +15,16 @@ import javax.persistence.MappedSuperclass;
 public class Osoba extends Entitet{
     private String ime;
     private String prezime;
-    private String oib;
     private String email;
     public Osoba() {
         super();
     }
 
-    public Osoba(String ime, String prezime, String oib, String email, Integer sifra) {
+    public Osoba(String ime, String prezime, String email, Integer sifra) {
         super(sifra);
         this.ime = ime;
         this.prezime = prezime;
-        this.oib = oib;
         this.email = email;
-
     }
 
     public String getIme() {
@@ -44,14 +41,6 @@ public class Osoba extends Entitet{
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
-    }
-
-    public String getOib() {
-        return oib;
-    }
-
-    public void setOib(String oib) {
-        this.oib = oib;
     }
 
     public String getEmail() {

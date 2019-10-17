@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author PC
  */
-public class ObradaPutnik extends Obrada<Putnik> {
+public class ObradaPutnik extends ObradaOsoba<Putnik> {
 
     @Override
     public List<Putnik> getEntiteti() {
@@ -31,16 +31,24 @@ public class ObradaPutnik extends Obrada<Putnik> {
     }
 
     @Override
-    protected void kontrolaSpremi(Putnik entiet) throws AvioappException {
-
+    protected void kontrolaSpremi(Putnik entitet) throws AvioappException {
+        super.kontrolaSpremi(entitet);
+        kontrolaBrojDokumenta(entitet);
     }
 
     @Override
     protected void kontrolaBrisi(Putnik entitet) throws AvioappException {
-
+        super.kontrolaBrisi(entitet);
     }
 
-    public ObradaPutnik spremi(ObradaPutnik s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+      private void kontrolaBrojDokumenta(Putnik entitet) throws AvioappException {
+        if (entitet.getBrojDokumenta()== null){
+            throw new AvioappException("Broj dokumenta mora biti unesen");
+                
+                 
+        }else if(entitet.getBrojDokumenta().trim().length()<9 ) {
+            throw new AvioappException("Broj dokumenta mora biti 9 znakova");
+            
+        }
+      }
 }

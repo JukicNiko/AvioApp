@@ -23,8 +23,8 @@ public class Putnik extends Osoba implements Serializable {
         super();
     }
 
-    public Putnik(Integer sifra, String ime, String prezime, String brojDokumenta, String oib, String email, String brojTelefona) {
-        super(ime, prezime, oib, email, sifra);
+    public Putnik(Integer sifra, String ime, String prezime, String brojDokumenta, String email, String brojTelefona) {
+        super(ime, prezime, email, sifra);
         this.brojDokumenta = brojDokumenta;
         this.brojTelefona = brojTelefona;
     }
