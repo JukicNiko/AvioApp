@@ -17,7 +17,7 @@ public class ObradaAvion extends Obrada<Avion> {
 
     @Override
     protected void kontrolaSpremi(Avion entiet) throws AvioappException {
-        kontrolaProizvodac(entiet);
+        kontrolaProizvođač(entiet);
         kontrolaKolicinaSjedala(entiet);
     }
 
@@ -31,14 +31,15 @@ public class ObradaAvion extends Obrada<Avion> {
         return session.createQuery("from Avion").list();
     }
 
-    public List<Avion> getAvioni(String uvjet) {
-        return session.createQuery("from Avion a where a.proizvođač like :uvjet") 
-                .setParameter("uvjet", "%" + uvjet)
+    public List<Avion> getProizvođač(String uvjet) {
+        return session.createQuery("from Avion a "
+                + " where a.proizvođač like :uvjet or ")
+                .setParameter("uvjet", "%" + uvjet + "%")
                 .setMaxResults(20)
                 .list();
     }
 
-    private void kontrolaProizvodac(Avion entitet) throws AvioappException {
+    private void kontrolaProizvođač(Avion entitet) throws AvioappException {
         if (entitet.getProizvođač() == null || entitet.getProizvođač().trim().length() == 0) {
             throw new AvioappException("Naziv proizvođača je obavezan");
         }
