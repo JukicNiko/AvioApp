@@ -20,6 +20,7 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
         //kontrola imena, prezimena, email, oib
         kontrolaIme(entitet);
         kontrolaPrezime(entitet);
+        kontrolaTelefon(entitet);
     }
 
     @Override

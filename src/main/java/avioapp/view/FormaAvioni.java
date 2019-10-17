@@ -24,7 +24,7 @@ public class FormaAvioni extends ProjektView<Avion> {
         initComponents();
         obrada = new ObradaAvion();
         setTitle(Utility.getNazivAplikacije() + " Avion ");
-
+        btnTrazi.setText("\uD83D\uDD0D");
         ucitaj();
     }
 
@@ -54,6 +54,7 @@ public class FormaAvioni extends ProjektView<Avion> {
         menIzlaz = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Avioni"));
 
@@ -252,8 +253,8 @@ public class FormaAvioni extends ProjektView<Avion> {
             return;
         }
         DefaultListModel<Avion> model = new DefaultListModel<>();
-        obrada.getProizvođač(txtUvjet.getText().trim()).forEach((let) -> {
-            model.addElement(let);
+        obrada.getAvioni(txtUvjet.getText().trim()).forEach((avion) -> {
+            model.addElement(avion);
         });
         lista.setModel(model);
     }//GEN-LAST:event_btnTraziActionPerformed
@@ -321,15 +322,14 @@ public class FormaAvioni extends ProjektView<Avion> {
     }
 
     @Override
-    protected boolean kontrola(Avion v) {
+    protected boolean kontrola(Avion entitet) {
         return true;
     }
 
     @Override
     protected void postaviVrijednosti(Avion v) {
-
         txtProizvodac.setText(v.getProizvođač());
-        jsBrojSjedala.setValue(v.getKoličinaSjedala()== null ? "" : v.getKoličinaSjedala());
+        jsBrojSjedala.setValue(v.getKoličinaSjedala() == null ? "" : v.getKoličinaSjedala());
     }
 
 }

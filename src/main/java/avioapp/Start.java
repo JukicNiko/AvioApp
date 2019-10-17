@@ -3,6 +3,7 @@ package avioapp;
 import avioapp.test.TestOperater;
 import avioapp.test.TestPutnik;
 import avioapp.utility.HibernateUtil;
+import avioapp.view.FormaAvioni;
 import avioapp.view.FormaPutnici;
 import avioapp.view.Izbornik;
 import avioapp.view.SplashScreen;
@@ -25,5 +26,6 @@ public class Start {
         new Izbornik().setVisible(true);
         //TestOperater.izvedi();
         //new SplashScreen().setVisible(true);
+        //new FormaAvioni().setVisible(true);
     }
 }

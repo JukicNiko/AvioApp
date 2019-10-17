@@ -79,6 +79,7 @@ public class FormaLetovi extends ProjektView<Let> {
         itmIzlaz = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Podaci o letu"));
 
@@ -285,7 +286,7 @@ public class FormaLetovi extends ProjektView<Let> {
 
         if (JOptionPane.showConfirmDialog(
                 null, //roditelj, bude null
-                "Sigurno obrisati" + " " + i.getPolazište() + " " + i.getOdredište(),//tijelo dijaloga
+                "Sigurno obrisati let" + " " + i.getImeLeta(),//tijelo dijaloga
                 "Brisanje leta", // naslov
                 JOptionPane.YES_NO_OPTION, //vrsta opcija
                 JOptionPane.QUESTION_MESSAGE) //ikona

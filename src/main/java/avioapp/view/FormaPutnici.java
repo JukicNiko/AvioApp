@@ -52,7 +52,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         txtBrojDokumenta = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtBrojTelefona = new javax.swing.JTextField();
+        txtTelefon = new javax.swing.JTextField();
         txtUvjet = new javax.swing.JTextField();
         btnTrazi = new javax.swing.JButton();
         btnDodaj = new javax.swing.JButton();
@@ -63,6 +63,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         ItmIzlaz = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lista.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Putnici"), "Putnici"));
         lista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -106,11 +107,11 @@ public class FormaPutnici extends ProjektView<Putnik> {
 
         jLabel4.setText("Broj dokumenta");
 
-        jLabel5.setText("Telefon");
+        jLabel5.setText("Broj telefona");
 
-        txtBrojTelefona.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBrojTelefonaActionPerformed(evt);
+                txtTelefonActionPerformed(evt);
             }
         });
 
@@ -139,7 +140,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
-                            .addComponent(txtBrojTelefona, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,7 +157,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBrojTelefona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -284,9 +285,9 @@ public class FormaPutnici extends ProjektView<Putnik> {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBrojDokumentaActionPerformed
 
-    private void txtBrojTelefonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrojTelefonaActionPerformed
+    private void txtTelefonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBrojTelefonaActionPerformed
+    }//GEN-LAST:event_txtTelefonActionPerformed
 
     private void txtUvjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUvjetActionPerformed
         // TODO add your handling code here:
@@ -385,10 +386,10 @@ public class FormaPutnici extends ProjektView<Putnik> {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<Putnik> lista;
     private javax.swing.JTextField txtBrojDokumenta;
-    private javax.swing.JTextField txtBrojTelefona;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIme;
     private javax.swing.JTextField txtPrezime;
+    private javax.swing.JTextField txtTelefon;
     private javax.swing.JTextField txtUvjet;
     // End of variables declaration//GEN-END:variables
 
@@ -402,7 +403,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         k.setPrezime(txtPrezime.getText());
         k.setEmail(txtEmail.getText());
         k.setBrojDokumenta(txtBrojDokumenta.getText());
-        k.setTelefon(txtBrojTelefona.getText());
+        k.setTelefon(txtTelefon.getText());
 
         try {
             obrada.spremi(k);
@@ -440,7 +441,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         txtPrezime.setText(k.getPrezime());
         txtEmail.setText(k.getEmail());
         txtBrojDokumenta.setText(k.getBrojDokumenta() == null ? "" : k.getBrojDokumenta().toString());
-        txtBrojTelefona.setText(k.getTelefon());
+        txtTelefon.setText(k.getTelefon());
     }
 
 }

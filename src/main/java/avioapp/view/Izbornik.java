@@ -55,31 +55,29 @@ public class Izbornik extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         lblVrijeme = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menbIzbornik = new javax.swing.JMenu();
-        menLetovi = new javax.swing.JMenuItem();
         menPutnici = new javax.swing.JMenuItem();
+        menLetovi = new javax.swing.JMenuItem();
         menAvioni = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         separator = new javax.swing.JPopupMenu.Separator();
         menIzlaz = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jToolBar1.setRollover(true);
 
         lblVrijeme.setText("Vrijeme");
         jToolBar1.add(lblVrijeme);
 
-        menbIzbornik.setText("Izbornik");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Izbornik.jpg"))); // NOI18N
 
-        menLetovi.setText("Letovi");
-        menLetovi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menLetoviActionPerformed(evt);
-            }
-        });
-        menbIzbornik.add(menLetovi);
+        menbIzbornik.setText("Izbornik");
 
         menPutnici.setText("Putnici");
         menPutnici.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +87,14 @@ public class Izbornik extends javax.swing.JFrame {
         });
         menbIzbornik.add(menPutnici);
 
+        menLetovi.setText("Letovi");
+        menLetovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menLetoviActionPerformed(evt);
+            }
+        });
+        menbIzbornik.add(menLetovi);
+
         menAvioni.setText("Avioni");
         menAvioni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +102,9 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
         menbIzbornik.add(menAvioni);
+
+        jMenuItem1.setText("Booking");
+        menbIzbornik.add(jMenuItem1);
         menbIzbornik.add(separator);
 
         menIzlaz.setText("Izlaz");
@@ -109,6 +118,10 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1.add(menbIzbornik);
 
         jMenu2.setText("Pomoć");
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -117,13 +130,17 @@ public class Izbornik extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 252, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -147,8 +164,11 @@ public class Izbornik extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblVrijeme;
     private javax.swing.JMenuItem menAvioni;

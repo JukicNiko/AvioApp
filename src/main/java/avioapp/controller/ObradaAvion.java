@@ -17,7 +17,8 @@ public class ObradaAvion extends Obrada<Avion> {
 
     @Override
     protected void kontrolaSpremi(Avion entiet) throws AvioappException {
-
+        kontrolaProizvodac(entiet);
+        kontrolaKolicinaSjedala(entiet);
     }
 
     @Override
@@ -30,9 +31,9 @@ public class ObradaAvion extends Obrada<Avion> {
         return session.createQuery("from Avion").list();
     }
 
-    public List<Avion> getProizvođač(String uvjet) {
-        return session.createQuery("from Avion a" + "where a.Proizvođač like :uvjet ")
-                .setParameter("uvjet", "%" + uvjet + "%")
+    public List<Avion> getAvioni(String uvjet) {
+        return session.createQuery("from Avion a where a.proizvođač like :uvjet") 
+                .setParameter("uvjet", "%" + uvjet)
                 .setMaxResults(20)
                 .list();
     }
@@ -43,7 +44,7 @@ public class ObradaAvion extends Obrada<Avion> {
         }
     }
 
-    private void kntrolaKolicinaSjedala(Avion entitet) throws AvioappException {
+    private void kontrolaKolicinaSjedala(Avion entitet) throws AvioappException {
         if (entitet.getKoličinaSjedala() <= 0 || entitet.getKoličinaSjedala() > 80) {
             throw new AvioappException("Broj sjedala mora biti između 1 i 80");
         }
