@@ -39,4 +39,10 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
         }
     }
 
+    private void kontrolaTelefon(Osoba entitet) throws AvioappException {
+        if (entitet.getTelefon() == null || entitet.getTelefon().trim().length() == 0) {
+            throw new AvioappException("Broj telefona mora biti unesen");
+        }
+    }
+
 }

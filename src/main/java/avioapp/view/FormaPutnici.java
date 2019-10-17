@@ -402,7 +402,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         k.setPrezime(txtPrezime.getText());
         k.setEmail(txtEmail.getText());
         k.setBrojDokumenta(txtBrojDokumenta.getText());
-        k.setBrojTelefona(txtBrojTelefona.getText());
+        k.setTelefon(txtBrojTelefona.getText());
 
         try {
             obrada.spremi(k);
@@ -440,7 +440,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         txtPrezime.setText(k.getPrezime());
         txtEmail.setText(k.getEmail());
         txtBrojDokumenta.setText(k.getBrojDokumenta() == null ? "" : k.getBrojDokumenta().toString());
-        txtBrojTelefona.setText(k.getBrojTelefona());
+        txtBrojTelefona.setText(k.getTelefon());
     }
 
 }

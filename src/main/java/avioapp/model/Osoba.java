@@ -16,15 +16,17 @@ public class Osoba extends Entitet{
     private String ime;
     private String prezime;
     private String email;
+    private String telefon;
     public Osoba() {
         super();
     }
 
-    public Osoba(String ime, String prezime, String email, Integer sifra) {
+    public Osoba(String ime, String prezime, String email, Integer sifra, String telefon) {
         super(sifra);
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
+        this.telefon = telefon;
     }
 
     public String getIme() {
@@ -50,6 +52,15 @@ public class Osoba extends Entitet{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+    
 
         
      @Override

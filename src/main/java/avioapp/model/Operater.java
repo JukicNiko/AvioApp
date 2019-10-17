@@ -21,8 +21,8 @@ public class Operater extends Osoba implements Serializable {
         super();
     }
 
-    public Operater(String lozinka, String ime, String prezime, Integer sifra, String email) {
-        super(ime, email, prezime, sifra);
+    public Operater(String lozinka, String ime, String prezime, Integer sifra, String email, String telefon) {
+        super(ime, email, prezime, sifra, telefon);
         this.lozinka = lozinka;
     }
 

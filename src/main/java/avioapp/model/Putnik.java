@@ -17,24 +17,14 @@ import javax.persistence.MappedSuperclass;
 public class Putnik extends Osoba implements Serializable {
 
     private String brojDokumenta;
-    private String brojTelefona;
 
     public Putnik() {
         super();
     }
 
-    public Putnik(Integer sifra, String ime, String prezime, String brojDokumenta, String email, String brojTelefona) {
-        super(ime, prezime, email, sifra);
+    public Putnik(Integer sifra, String ime, String prezime, String brojDokumenta, String email, String telefon) {
+        super(ime, prezime, email, sifra, telefon);
         this.brojDokumenta = brojDokumenta;
-        this.brojTelefona = brojTelefona;
-    }
-
-    public String getBrojTelefona() {
-        return brojTelefona;
-    }
-
-    public void setBrojTelefona(String brojTelefona) {
-        this.brojTelefona = brojTelefona;
     }
 
     public String getBrojDokumenta() {
