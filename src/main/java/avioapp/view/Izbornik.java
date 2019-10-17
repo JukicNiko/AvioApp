@@ -61,11 +61,11 @@ public class Izbornik extends javax.swing.JFrame {
         menPutnici = new javax.swing.JMenuItem();
         menLetovi = new javax.swing.JMenuItem();
         menAvioni = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menBooking = new javax.swing.JMenuItem();
         separator = new javax.swing.JPopupMenu.Separator();
         menIzlaz = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menOProgramu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -103,8 +103,13 @@ public class Izbornik extends javax.swing.JFrame {
         });
         menbIzbornik.add(menAvioni);
 
-        jMenuItem1.setText("Booking");
-        menbIzbornik.add(jMenuItem1);
+        menBooking.setText("Booking");
+        menBooking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menBookingActionPerformed(evt);
+            }
+        });
+        menbIzbornik.add(menBooking);
         menbIzbornik.add(separator);
 
         menIzlaz.setText("Izlaz");
@@ -119,8 +124,13 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenu2.setText("Pomoć");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu2.add(jMenuItem2);
+        menOProgramu.setText("O programu");
+        menOProgramu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menOProgramuActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menOProgramu);
 
         jMenuBar1.add(jMenu2);
 
@@ -162,18 +172,26 @@ public class Izbornik extends javax.swing.JFrame {
         new FormaAvioni().setVisible(true);
     }//GEN-LAST:event_menAvioniActionPerformed
 
+    private void menBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menBookingActionPerformed
+        new FormaBooking().setVisible(true);
+    }//GEN-LAST:event_menBookingActionPerformed
+
+    private void menOProgramuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menOProgramuActionPerformed
+        new OProgramu().setVisible(true);
+    }//GEN-LAST:event_menOProgramuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblVrijeme;
     private javax.swing.JMenuItem menAvioni;
+    private javax.swing.JMenuItem menBooking;
     private javax.swing.JMenuItem menIzlaz;
     private javax.swing.JMenuItem menLetovi;
+    private javax.swing.JMenuItem menOProgramu;
     private javax.swing.JMenuItem menPutnici;
     private javax.swing.JMenu menbIzbornik;
     private javax.swing.JPopupMenu.Separator separator;
