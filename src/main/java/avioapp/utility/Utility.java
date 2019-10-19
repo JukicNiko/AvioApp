@@ -37,6 +37,10 @@ public class Utility {
     public static LocalDateTime convertToLocalDateViaInstant(Date dateToConvert) {
          return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
+    
+        public static Date convertToDateViaSqlTimestamp(LocalDateTime dateToConvert) {
+        return java.sql.Timestamp.valueOf(dateToConvert);
+    }
  }
     
 

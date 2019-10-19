@@ -12,6 +12,7 @@ import avioapp.model.Let;
 import avioapp.utility.AvioappException;
 import avioapp.utility.Utility;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
@@ -30,10 +31,10 @@ public class FormaLetovi extends ProjektView<Let> {
         initComponents();
         setLocationRelativeTo(null);
         obrada = new ObradaLet();
-        setTitle(Utility.getNazivAplikacije() + " Let ");
+        setTitle(Utility.getNazivAplikacije() + " Letovi ");
         btnTrazi.setText("\uD83D\uDD0D");
-        dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateViaInstant(new Date()));
-        dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateViaInstant(new Date()));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
 
         DatePickerSettings dps = new DatePickerSettings(
                 new Locale("hr", "HR")
@@ -41,9 +42,10 @@ public class FormaLetovi extends ProjektView<Let> {
 
         dps.setFormatForDatesCommonEra("dd.MM.yyyy.");
 
+        dpDatumDolaska.setSettings(dps);
+
         ucitajAvione();
         ucitaj();
-
     }
 
     /**
@@ -320,13 +322,13 @@ public class FormaLetovi extends ProjektView<Let> {
         });
         lista.setModel(model);
     }//GEN-LAST:event_btnTraziActionPerformed
-    
+
     private void itmIzlazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmIzlazActionPerformed
         dispose();
     }//GEN-LAST:event_itmIzlazActionPerformed
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
-         if (evt.getValueIsAdjusting()) {
+        if (evt.getValueIsAdjusting()) {
             return;
         }
         Let i = lista.getSelectedValue();
@@ -361,7 +363,6 @@ public class FormaLetovi extends ProjektView<Let> {
     private javax.swing.JTextField txtPolaziste;
     private javax.swing.JTextField txtUvjet;
     // End of variables declaration//GEN-END:variables
-
 
     protected void spremi(Let i) {
 
@@ -405,24 +406,27 @@ public class FormaLetovi extends ProjektView<Let> {
         txtIme.setText(i.getImeLeta());
         txtPolaziste.setText(i.getPolazište());
         txtOdrediste.setText(i.getOdredište());
-        dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateViaInstant(i.getDatumOdlaska()));
+        if (dpDatumOdlaska.getDate() != null) {
+            Date d = Utility.convertToDateViaInstant(dpDatumOdlaska.getDate());
+
+            i.setDatumOdlaska(d);
+        }
         dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateViaInstant(i.getDatumDolaska()));
 
     }
-    
-    
+
     private void ucitajAvione() {
         DefaultComboBoxModel<Avion> m = new DefaultComboBoxModel<>();
         Avion av = new Avion();
         av.setSifra(0);
         av.setProizvođač("Odaberite avion");
-        
+
         m.addElement(av);
-        
-        new ObradaAvion ().getEntiteti().forEach((avion) -> {
+
+        new ObradaAvion().getEntiteti().forEach((avion) -> {
             m.addElement(avion);
         });
-        
+
         cmbAvion.setModel(m);
     }
 }
