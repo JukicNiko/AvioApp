@@ -31,7 +31,7 @@ public class Let extends Entitet implements Serializable {
         super();
     }
 
-    public Let(Integer sifra, String imeLeta, Date datumDolaska, Date datumOdlaska, String polazište, String odredište, Avion avion) {
+    public Let(Integer sifra, String imeLeta, Date datumOdlaska, Date datumDolaska, String polazište, String odredište, Avion avion) {
         super(sifra);
         this.imeLeta = imeLeta;
         this.datumOdlaska = datumOdlaska;

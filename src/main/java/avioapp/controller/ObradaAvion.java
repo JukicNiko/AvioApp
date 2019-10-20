@@ -31,13 +31,13 @@ public class ObradaAvion extends Obrada<Avion> {
         return session.createQuery("from Avion").list();
     }
 
-    public List<Avion> getAvioni(String uvjet) {
-        return session.createQuery("from Avion a "
-                + " where a.proizvođač like :uvjet")
+    public List<Avion> getAvion(String uvjet) {
+        return session.createQuery("from Avion a where a.proizvođač like :uvjet or a.količinaSjedala like :uvjet")
                 .setParameter("uvjet", "%" + uvjet + "%")
                 .setMaxResults(20)
                 .list();
     }
+    
 
     private void kontrolaProizvođač(Avion entitet) throws AvioappException {
         if (entitet.getProizvođač() == null || entitet.getProizvođač().trim().length() == 0) {
