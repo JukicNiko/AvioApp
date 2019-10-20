@@ -17,10 +17,10 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Let extends Entitet implements Serializable {
-    
+
     private String imeLeta;
-    private Date datumDolaska;
     private Date datumOdlaska;
+    private Date datumDolaska;
     private String polazište;
     private String odredište;
 
@@ -34,8 +34,8 @@ public class Let extends Entitet implements Serializable {
     public Let(Integer sifra, String imeLeta, Date datumDolaska, Date datumOdlaska, String polazište, String odredište, Avion avion) {
         super(sifra);
         this.imeLeta = imeLeta;
-        this.datumDolaska = datumDolaska;
         this.datumOdlaska = datumOdlaska;
+        this.datumDolaska = datumDolaska;
         this.polazište = polazište;
         this.odredište = odredište;
         this.avion = avion;
@@ -49,20 +49,20 @@ public class Let extends Entitet implements Serializable {
         this.imeLeta = imeLeta;
     }
 
-    public Date getDatumDolaska() {
-        return datumDolaska;
-    }
-
-    public void setDatumDolaska(Date datumDolaska) {
-        this.datumDolaska = datumDolaska;
-    }
-
     public Date getDatumOdlaska() {
         return datumOdlaska;
     }
 
     public void setDatumOdlaska(Date datumOdlaska) {
         this.datumOdlaska = datumOdlaska;
+    }
+
+    public Date getDatumDolaska() {
+        return datumDolaska;
+    }
+
+    public void setDatumDolaska(Date datumDolaska) {
+        this.datumDolaska = datumDolaska;
     }
 
     public String getPolazište() {
@@ -88,6 +88,5 @@ public class Let extends Entitet implements Serializable {
     public void setAvion(Avion avion) {
         this.avion = avion;
     }
-    
-    
+
 }

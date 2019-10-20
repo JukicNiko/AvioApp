@@ -11,10 +11,7 @@ import avioapp.model.Avion;
 import avioapp.model.Let;
 import avioapp.utility.AvioappException;
 import avioapp.utility.Utility;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -34,15 +31,8 @@ public class FormaLetovi extends ProjektView<Let> {
         setTitle(Utility.getNazivAplikacije() + " Letovi ");
         btnTrazi.setText("\uD83D\uDD0D");
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-
-        DatePickerSettings dps = new DatePickerSettings(
-                new Locale("hr", "HR")
-        );
-
-        dps.setFormatForDatesCommonEra("dd.MM.yyyy.");
-
-        dpDatumDolaska.setSettings(dps);
+        dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(new Date()));
+        dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(new Date()));
 
         ucitajAvione();
         ucitaj();
@@ -406,13 +396,9 @@ public class FormaLetovi extends ProjektView<Let> {
         txtIme.setText(i.getImeLeta());
         txtPolaziste.setText(i.getPolazište());
         txtOdrediste.setText(i.getOdredište());
-        if (dpDatumOdlaska.getDate() != null) {
-            Date d = Utility.convertToDateViaInstant(dpDatumOdlaska.getDate());
-
-            i.setDatumOdlaska(d);
-        }
-        dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateViaInstant(i.getDatumDolaska()));
-
+        dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(i.getDatumOdlaska()));
+        dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(i.getDatumDolaska()));
+        cmbAvion.setSelectedItem(i.getAvion());
     }
 
     private void ucitajAvione() {

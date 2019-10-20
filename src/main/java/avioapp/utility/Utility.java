@@ -15,32 +15,24 @@ import java.util.Date;
  * @author Admin
  */
 public class Utility {
-    
-    public static String getNazivAplikacije(){
+
+    public static String getNazivAplikacije() {
         return "AvioAPP V1.0";
     }
-    
-    public static String getFormatDatumaIVremena(){
+
+    public static String getFormatDatumaIVremena() {
         return "dd. MM. YYYY. HH:mm:ss";
     }
-    
-    public static boolean isDev(){
+
+    public static boolean isDev() {
         return true;
     }
 
-    public static Date convertToDateViaInstant(LocalDate dateToConvert) {
-        return java.util.Date.from(dateToConvert.atStartOfDay()
-          .atZone(ZoneId.systemDefault())
-            .toInstant());
+    public static LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
-    public static LocalDateTime convertToLocalDateViaInstant(Date dateToConvert) {
-         return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    }
-    
-        public static Date convertToDateViaSqlTimestamp(LocalDateTime dateToConvert) {
+    public static Date convertToDateViaSqlTimestamp(LocalDateTime dateToConvert) {
         return java.sql.Timestamp.valueOf(dateToConvert);
     }
- }
-    
-
+}
