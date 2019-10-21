@@ -63,7 +63,7 @@ public class FormaPutnici extends ProjektView<Putnik> {
         JMenu = new javax.swing.JMenu();
         ItmIzlaz = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         lista.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Putnici"), "Putnici"));

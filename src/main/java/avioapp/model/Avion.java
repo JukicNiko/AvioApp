@@ -16,33 +16,37 @@ import javax.persistence.MappedSuperclass;
 @Entity
 public class Avion extends Entitet implements Serializable {
 
-    private String proizvođač;
-    private Integer količinaSjedala;
+    private String proizvodac;
+    private Integer kolicinaSjedala;
 
     public Avion() {
         super();
     }
 
-    public Avion(String proizvođač, Integer količinaSjedala, Integer sifra) {
+    public Avion(String proizvodac, Integer kolicinaSjedala, Integer sifra) {
         super(sifra);
-        this.proizvođač = proizvođač;
-        this.količinaSjedala = količinaSjedala;
+        this.proizvodac = proizvodac;
+        this.kolicinaSjedala = kolicinaSjedala;
     }
 
-    public String getProizvođač() {
-        return proizvođač;
+    public String getProizvodac() {
+        return proizvodac;
     }
 
-    public void setProizvođač(String proizvođač) {
-        this.proizvođač = proizvođač;
+    public void setProizvodac(String proizvodac) {
+        this.proizvodac = proizvodac;
     }
 
-    public Integer getKoličinaSjedala() {
-        return količinaSjedala;
+    public Integer getKolicinaSjedala() {
+        return kolicinaSjedala;
     }
 
-    public void setKoličinaSjedala(Integer količinaSjedala) {
-        this.količinaSjedala = količinaSjedala;
+    public void setKolicinaSjedala(Integer kolicinaSjedala) {
+        this.kolicinaSjedala = kolicinaSjedala;
     }
 
+    @Override
+    public String toString() {
+        return proizvodac;
+    }   
 }

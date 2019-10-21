@@ -32,7 +32,7 @@ public class FormaBooking extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         obrada = new ObradaBooking();
-        setTitle(Utility.getNazivAplikacije() + "Booking");
+        setTitle(Utility.getNazivAplikacije() + " " + "Booking");
         btnTrazi.setText("\uD83D\uDD0D");
 
         ucitajPutnike();
@@ -90,7 +90,7 @@ public class FormaBooking extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Booking"));
@@ -213,7 +213,7 @@ public class FormaBooking extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()

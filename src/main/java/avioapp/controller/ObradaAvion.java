@@ -40,13 +40,13 @@ public class ObradaAvion extends Obrada<Avion> {
     
 
     private void kontrolaProizvođač(Avion entitet) throws AvioappException {
-        if (entitet.getProizvođač() == null || entitet.getProizvođač().trim().length() == 0) {
+        if (entitet.getProizvodac() == null || entitet.getProizvodac().trim().length() == 0) {
             throw new AvioappException("Naziv proizvođača je obavezan");
         }
     }
 
     private void kontrolaKolicinaSjedala(Avion entitet) throws AvioappException {
-        if (entitet.getKoličinaSjedala() <= 0 || entitet.getKoličinaSjedala() > 80) {
+        if (entitet.getKolicinaSjedala() <= 0 || entitet.getKolicinaSjedala() > 80) {
             throw new AvioappException("Broj sjedala mora biti između 1 i 80");
         }
     }

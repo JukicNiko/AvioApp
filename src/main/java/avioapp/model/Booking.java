@@ -91,4 +91,8 @@ public class Booking extends Entitet implements Serializable {
         this.naziv = naziv;
     }
 
+    @Override
+    public String toString() {
+        return naziv;
+    }    
 }

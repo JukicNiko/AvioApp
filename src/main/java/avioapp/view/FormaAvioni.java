@@ -54,7 +54,7 @@ public class FormaAvioni extends ProjektView<Avion> {
         jMenu1 = new javax.swing.JMenu();
         menIzlaz = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Podaci o avionu"));
@@ -227,7 +227,7 @@ public class FormaAvioni extends ProjektView<Avion> {
 
         if (JOptionPane.showConfirmDialog(
                 null, //roditelj, bude null
-                "Sigurno obrisati" + " " + v.getProizvođač() + " " + v.getKoličinaSjedala(),//tijelo dijaloga
+                "Sigurno obrisati" + " " + v.getProizvodac() + " " + v.getKolicinaSjedala(),//tijelo dijaloga
                 "Brisanje aviona", // naslov
                 JOptionPane.YES_NO_OPTION, //vrsta opcija
                 JOptionPane.QUESTION_MESSAGE) //ikona
@@ -310,8 +310,8 @@ public class FormaAvioni extends ProjektView<Avion> {
             return;
         }
 
-        v.setProizvođač(txtProizvodac.getText());
-        v.setKoličinaSjedala((Integer) jsBrojSjedala.getValue());
+        v.setProizvodac(txtProizvodac.getText());
+        v.setKolicinaSjedala((Integer) jsBrojSjedala.getValue());
 
         try {
             obrada.spremi(v);
@@ -330,8 +330,8 @@ public class FormaAvioni extends ProjektView<Avion> {
 
     @Override
     protected void postaviVrijednosti(Avion v) {
-        txtProizvodac.setText(v.getProizvođač());
-        jsBrojSjedala.setValue(v.getKoličinaSjedala() == null ? "" : v.getKoličinaSjedala());
+        txtProizvodac.setText(v.getProizvodac());
+        jsBrojSjedala.setValue(v.getKolicinaSjedala() == null ? "" : v.getKolicinaSjedala());
     }
 
 }

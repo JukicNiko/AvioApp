@@ -21,8 +21,8 @@ public class Let extends Entitet implements Serializable {
     private String imeLeta;
     private Date datumOdlaska;
     private Date datumDolaska;
-    private String polazište;
-    private String odredište;
+    private String polaziste;
+    private String odrediste;
 
     @ManyToOne
     private Avion avion;
@@ -31,13 +31,13 @@ public class Let extends Entitet implements Serializable {
         super();
     }
 
-    public Let(Integer sifra, String imeLeta, Date datumOdlaska, Date datumDolaska, String polazište, String odredište, Avion avion) {
+    public Let(Integer sifra, String imeLeta, Date datumOdlaska, Date datumDolaska, String polaziste, String odrediste, Avion avion) {
         super(sifra);
         this.imeLeta = imeLeta;
         this.datumOdlaska = datumOdlaska;
         this.datumDolaska = datumDolaska;
-        this.polazište = polazište;
-        this.odredište = odredište;
+        this.polaziste = polaziste;
+        this.odrediste = odrediste;
         this.avion = avion;
     }
 
@@ -65,20 +65,20 @@ public class Let extends Entitet implements Serializable {
         this.datumDolaska = datumDolaska;
     }
 
-    public String getPolazište() {
-        return polazište;
+    public String getPolaziste() {
+        return polaziste;
     }
 
-    public void setPolazište(String polazni_grad) {
-        this.polazište = polazni_grad;
+    public void setPolaziste(String polazni_grad) {
+        this.polaziste = polazni_grad;
     }
 
-    public String getOdredište() {
-        return odredište;
+    public String getOdrediste() {
+        return odrediste;
     }
 
-    public void setOdredište(String odredište) {
-        this.odredište = odredište;
+    public void setOdrediste(String odrediste) {
+        this.odrediste = odrediste;
     }
 
     public Avion getAvion() {
@@ -89,4 +89,9 @@ public class Let extends Entitet implements Serializable {
         this.avion = avion;
     }
 
+    @Override
+    public String toString() {
+        return imeLeta;
+    }
+   
 }

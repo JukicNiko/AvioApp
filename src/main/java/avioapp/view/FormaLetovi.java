@@ -71,7 +71,7 @@ public class FormaLetovi extends ProjektView<Let> {
         jMenu1 = new javax.swing.JMenu();
         itmIzlaz = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Podaci o letu"));
@@ -356,8 +356,8 @@ public class FormaLetovi extends ProjektView<Let> {
 
     protected void spremi(Let i) {
 
-        i.setPolazište(txtPolaziste.getText());
-        i.setOdredište(txtOdrediste.getText());
+        i.setPolaziste(txtPolaziste.getText());
+        i.setOdrediste(txtOdrediste.getText());
         i.setImeLeta(txtIme.getText());
         i.setAvion((Avion) cmbAvion.getSelectedItem());
 
@@ -394,8 +394,8 @@ public class FormaLetovi extends ProjektView<Let> {
     @Override
     protected void postaviVrijednosti(Let i) {
         txtIme.setText(i.getImeLeta());
-        txtPolaziste.setText(i.getPolazište());
-        txtOdrediste.setText(i.getOdredište());
+        txtPolaziste.setText(i.getPolaziste());
+        txtOdrediste.setText(i.getOdrediste());
         dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(i.getDatumOdlaska()));
         dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(i.getDatumDolaska()));
         cmbAvion.setSelectedItem(i.getAvion());
@@ -405,7 +405,7 @@ public class FormaLetovi extends ProjektView<Let> {
         DefaultComboBoxModel<Avion> m = new DefaultComboBoxModel<>();
         Avion av = new Avion();
         av.setSifra(0);
-        av.setProizvođač("Odaberite avion");
+        av.setProizvodac("Odaberite avion");
 
         m.addElement(av);
 
