@@ -5,7 +5,6 @@
  */
 package avioapp.utility;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -28,11 +27,11 @@ public class Utility {
         return true;
     }
 
-    public static LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
-        return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    }
-
     public static Date convertToDateViaSqlTimestamp(LocalDateTime dateToConvert) {
         return java.sql.Timestamp.valueOf(dateToConvert);
+    }
+
+    public static LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 }

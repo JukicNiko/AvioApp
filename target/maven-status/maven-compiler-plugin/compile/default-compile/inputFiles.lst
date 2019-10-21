@@ -1,5 +1,6 @@
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\Start.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\test\TestOperater.java
+D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\FormaListaLetova.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\test\TestPutnik.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\utility\AvioappException.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\OProgramu.java
@@ -25,5 +26,6 @@ D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\FormaLetovi.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\controller\ObradaAvion.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\ProjektView.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\Autorizacija.java
+D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\FormaListaPutnika.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\model\Booking.java
 D:\ZavrsniRad\AvioApp\src\main\java\avioapp\view\FormaPutnici.java
