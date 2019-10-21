@@ -46,7 +46,7 @@ public class HibernateUtil {
                         .openSession();
                 
             } catch (Throwable e) {
-                //ovdeje će završiti ako imamo problema s hibernate.cfg.xml
+                //ovdje će završiti ako imamo problema s hibernate.cfg.xml
                 throw new ExceptionInInitializerError(e);
             }
         }

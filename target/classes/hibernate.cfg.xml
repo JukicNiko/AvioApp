@@ -4,10 +4,6 @@
 <hibernate-configuration>
     <session-factory>
         <!-- JDBC Database connection settings -->
-        <!-- prvo kreirati bazu
-            create database edunovaj20_hib 
-                character set utf8 collate utf8_general_ci;
-        -->
         <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
         <property name="connection.url">jdbc:mariadb://localhost/avioapp_hib?useSSL=false</property>
         <property name="connection.username">pc</property>
@@ -36,9 +32,7 @@
         <property name="hibernate.dbcp.maxIdle">10</property>
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
-        
-        
-        <!-- Ovdje navodimo naše mapirane klase -->
+                
         <!-- <mapping class="avioapp.model.Avion" />-->
         <mapping class="avioapp.model.Booking" />
         <mapping class="avioapp.model.Let" />
