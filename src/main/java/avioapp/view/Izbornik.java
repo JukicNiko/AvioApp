@@ -54,6 +54,7 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem4 = new javax.swing.JMenuItem();
         jToolBar1 = new javax.swing.JToolBar();
         lblVrijeme = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -65,8 +66,15 @@ public class Izbornik extends javax.swing.JFrame {
         menBooking = new javax.swing.JMenuItem();
         separator = new javax.swing.JPopupMenu.Separator();
         menIzlaz = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menLista = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        menPomoc = new javax.swing.JMenu();
         menOProgramu = new javax.swing.JMenuItem();
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -123,7 +131,33 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenuBar1.add(menbIzbornik);
 
-        jMenu2.setText("Pomoć");
+        menLista.setText("Lista");
+
+        jMenuItem1.setText("Putnici");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menLista.add(jMenuItem1);
+
+        jMenuItem2.setText("Letovi");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menLista.add(jMenuItem2);
+
+        jMenuItem3.setText("Avioni");
+        menLista.add(jMenuItem3);
+
+        jMenuItem5.setText("Booking");
+        menLista.add(jMenuItem5);
+
+        jMenuBar1.add(menLista);
+
+        menPomoc.setText("Pomoć");
 
         menOProgramu.setText("O programu");
         menOProgramu.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +165,9 @@ public class Izbornik extends javax.swing.JFrame {
                 menOProgramuActionPerformed(evt);
             }
         });
-        jMenu2.add(menOProgramu);
+        menPomoc.add(menOProgramu);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menPomoc);
 
         setJMenuBar(jMenuBar1);
 
@@ -181,18 +215,32 @@ public class Izbornik extends javax.swing.JFrame {
         new OProgramu().setVisible(true);
     }//GEN-LAST:event_menOProgramuActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new FormaListaPutnici().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        new FormaListaLetovi().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblVrijeme;
     private javax.swing.JMenuItem menAvioni;
     private javax.swing.JMenuItem menBooking;
     private javax.swing.JMenuItem menIzlaz;
     private javax.swing.JMenuItem menLetovi;
+    private javax.swing.JMenu menLista;
     private javax.swing.JMenuItem menOProgramu;
+    private javax.swing.JMenu menPomoc;
     private javax.swing.JMenuItem menPutnici;
     private javax.swing.JMenu menbIzbornik;
     private javax.swing.JPopupMenu.Separator separator;
