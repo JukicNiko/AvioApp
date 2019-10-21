@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Marta
+ * @author PC
  */
 public class ObradaOperater extends ObradaOsoba<Operater>{
 

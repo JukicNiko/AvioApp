@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 
 /**
  *
- * @author pc
+ * @author PC
  */
 @Entity
 public class Operater extends Osoba implements Serializable {

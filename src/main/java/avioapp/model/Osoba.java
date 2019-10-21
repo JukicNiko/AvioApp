@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  *
- * @author pc
+ * @author PC
  */
 @MappedSuperclass
 public class Osoba extends Entitet{

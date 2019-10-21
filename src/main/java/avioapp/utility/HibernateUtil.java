@@ -11,7 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 /**
  *
- * @author pc
+ * @author PC
  */
 //singleton pattern
 public class HibernateUtil {

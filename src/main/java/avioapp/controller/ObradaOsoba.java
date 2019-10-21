@@ -10,7 +10,7 @@ import avioapp.utility.AvioappException;
 
 /**
  *
- * @author pc
+ * @author PC
  * @param <T> extends Osoba
  */
 public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {

@@ -12,7 +12,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
- * @author Marta
+ * @author PC
  */
 public class TestOperater {
     

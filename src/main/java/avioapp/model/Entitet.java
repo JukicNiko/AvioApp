@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  *
- * @author Admin
+ * @author PC
  */
 @MappedSuperclass
 public abstract class Entitet {

@@ -69,8 +69,6 @@ public class Izbornik extends javax.swing.JFrame {
         menLista = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         menPomoc = new javax.swing.JMenu();
         menOProgramu = new javax.swing.JMenuItem();
 
@@ -149,12 +147,6 @@ public class Izbornik extends javax.swing.JFrame {
         });
         menLista.add(jMenuItem2);
 
-        jMenuItem3.setText("Avioni");
-        menLista.add(jMenuItem3);
-
-        jMenuItem5.setText("Booking");
-        menLista.add(jMenuItem5);
-
         jMenuBar1.add(menLista);
 
         menPomoc.setText("Pomoć");
@@ -229,9 +221,7 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblVrijeme;
     private javax.swing.JMenuItem menAvioni;

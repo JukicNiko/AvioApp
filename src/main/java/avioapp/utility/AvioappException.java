@@ -7,7 +7,7 @@ package avioapp.utility;
 
 /**
  *
- * @author Admin
+ * @author PC
  */
 public class AvioappException extends Exception {
 
