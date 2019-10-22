@@ -7,7 +7,9 @@ package avioapp.controller;
 
 import avioapp.model.Let;
 import avioapp.utility.AvioappException;
+import avioapp.utility.Utility;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +20,8 @@ public class ObradaLet extends Obrada<Let> {
     @Override
     protected void kontrolaSpremi(Let entiet) throws AvioappException {
         kontrolaImeLeta(entiet);
+        kontrolaOdlazista(entiet);
+        kontrolaPolazista(entiet);
     }
 
     @Override
@@ -26,9 +30,18 @@ public class ObradaLet extends Obrada<Let> {
     }
 
     private void kontrolaImeLeta(Let entitet) throws AvioappException {
-        if (entitet.getImeLeta() == null) {
-            throw new AvioappException("Ime leta mora biti uneseno");
-
+        if (entitet.getImeLeta() == null || entitet.getImeLeta().trim().length() == 0) {
+            throw new AvioappException("Šifra leta mora biti unesena");
+        }
+    }
+        private void kontrolaOdlazista(Let entitet) throws AvioappException {
+        if (entitet.getOdrediste()== null || entitet.getOdrediste().trim().length() == 0) {
+            throw new AvioappException("Odredište mora biti uneseno");
+        }
+    }
+            private void kontrolaPolazista(Let entitet) throws AvioappException {
+        if (entitet.getPolaziste()== null || entitet.getPolaziste().trim().length() == 0) {
+            throw new AvioappException("Polazište leta mora biti uneseno");
         }
     }
 
