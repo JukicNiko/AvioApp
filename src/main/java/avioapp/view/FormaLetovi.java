@@ -372,6 +372,24 @@ public class FormaLetovi extends ProjektView<Let> {
 
     }
 
+    private boolean kontrolaDatumOdlaska(Let v) {
+        if (dpDatumOdlaska.getDateTimeStrict() == null) {
+            JOptionPane.showMessageDialog(null, "Obavezan unos datuma odlaska!");
+            return false;
+        }
+        v.setDatumOdlaska(Utility.convertToDateViaSqlTimestamp(dpDatumOdlaska.getDateTimeStrict()));
+        return true;
+    }
+
+    private boolean kontrolaDatumDolaska(Let v) {
+        if (dpDatumDolaska.getDateTimeStrict() == null) {
+            JOptionPane.showMessageDialog(null, "Obavezan unos datuma dolaska!");
+            return false;
+        }
+        v.setDatumDolaska(Utility.convertToDateViaSqlTimestamp(dpDatumDolaska.getDateTimeStrict()));
+        return true;
+    }
+
     @Override
     protected void ucitaj() {
         {
@@ -388,7 +406,7 @@ public class FormaLetovi extends ProjektView<Let> {
 
     @Override
     protected boolean kontrola(Let entitet) {
-        return true;
+        return kontrolaDatumDolaska(entitet) && kontrolaDatumOdlaska(entitet);
     }
 
     @Override
