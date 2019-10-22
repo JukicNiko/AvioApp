@@ -16,8 +16,8 @@ import avioapp.view.SplashScreen;
  */
 public class Start {
     public static void main(String[] args) {
-        //HibernateUtil.getSession();
-        new SplashScreen().setVisible(true);
+        HibernateUtil.getSession();
+        //new SplashScreen().setVisible(true);
         //TestOperater.test();
     }
 }
