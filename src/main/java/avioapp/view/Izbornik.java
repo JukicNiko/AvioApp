@@ -61,13 +61,14 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menbIzbornik = new javax.swing.JMenu();
         menPutnici = new javax.swing.JMenuItem();
-        menLetovi = new javax.swing.JMenuItem();
         menAvioni = new javax.swing.JMenuItem();
+        menLetovi = new javax.swing.JMenuItem();
         menBooking = new javax.swing.JMenuItem();
         separator = new javax.swing.JPopupMenu.Separator();
         menIzlaz = new javax.swing.JMenuItem();
         menLista = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menPomoc = new javax.swing.JMenu();
         menOProgramu = new javax.swing.JMenuItem();
@@ -94,14 +95,6 @@ public class Izbornik extends javax.swing.JFrame {
         });
         menbIzbornik.add(menPutnici);
 
-        menLetovi.setText("Letovi");
-        menLetovi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menLetoviActionPerformed(evt);
-            }
-        });
-        menbIzbornik.add(menLetovi);
-
         menAvioni.setText("Avioni");
         menAvioni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +102,14 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
         menbIzbornik.add(menAvioni);
+
+        menLetovi.setText("Letovi");
+        menLetovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menLetoviActionPerformed(evt);
+            }
+        });
+        menbIzbornik.add(menLetovi);
 
         menBooking.setText("Booking");
         menBooking.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +139,14 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
         menLista.add(jMenuItem1);
+
+        jMenuItem3.setText("Avioni");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menLista.add(jMenuItem3);
 
         jMenuItem2.setText("Letovi");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -215,12 +224,17 @@ public class Izbornik extends javax.swing.JFrame {
         new FormaListaLetova().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       new FormaListaAvioni().setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblVrijeme;
