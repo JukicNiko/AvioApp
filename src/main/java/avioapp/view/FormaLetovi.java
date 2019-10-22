@@ -11,7 +11,9 @@ import avioapp.model.Avion;
 import avioapp.model.Let;
 import avioapp.utility.AvioappException;
 import avioapp.utility.Utility;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -33,6 +35,12 @@ public class FormaLetovi extends ProjektView<Let> {
 
         dpDatumOdlaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(new Date()));
         dpDatumDolaska.setDateTimeStrict(Utility.convertToLocalDateTimeViaInstant(new Date()));
+
+        DatePickerSettings dps = new DatePickerSettings(
+                new Locale("hr", "HR")
+        );
+
+        dps.setFormatForDatesCommonEra("dd.MM.yyyy.");
 
         ucitajAvione();
         ucitaj();
@@ -360,6 +368,19 @@ public class FormaLetovi extends ProjektView<Let> {
         i.setOdrediste(txtOdrediste.getText());
         i.setImeLeta(txtIme.getText());
         i.setAvion((Avion) cmbAvion.getSelectedItem());
+        if (dpDatumOdlaska.getDatePicker() != null) {
+            Date d;
+            d = Utility.convertToDateViaSqlTimestamp(dpDatumOdlaska.getDateTimeStrict());
+
+            i.setDatumOdlaska(d);
+        }
+        
+        if (dpDatumDolaska.getDatePicker() != null) {
+            Date d;
+            d = Utility.convertToDateViaSqlTimestamp(dpDatumDolaska.getDateTimeStrict());
+
+            i.setDatumDolaska(d);
+        }
 
         try {
             obrada.spremi(i);
@@ -372,41 +393,23 @@ public class FormaLetovi extends ProjektView<Let> {
 
     }
 
-    private boolean kontrolaDatumOdlaska(Let v) {
-        if (dpDatumOdlaska.getDateTimeStrict() == null) {
-            JOptionPane.showMessageDialog(null, "Obavezan unos datuma odlaska!");
-            return false;
-        }
-        v.setDatumOdlaska(Utility.convertToDateViaSqlTimestamp(dpDatumOdlaska.getDateTimeStrict()));
-        return true;
-    }
-
-    private boolean kontrolaDatumDolaska(Let v) {
-        if (dpDatumDolaska.getDateTimeStrict() == null) {
-            JOptionPane.showMessageDialog(null, "Obavezan unos datuma dolaska!");
-            return false;
-        }
-        v.setDatumDolaska(Utility.convertToDateViaSqlTimestamp(dpDatumDolaska.getDateTimeStrict()));
-        return true;
-    }
-
     @Override
     protected void ucitaj() {
-        {
-            DefaultListModel<Let> model = new DefaultListModel<>();
-            obrada.getEntiteti().forEach(
-                    (let) -> {
-                        model.addElement(let);
-                    });
 
-            lista.setModel(model);
-            lista.repaint();
-        }
+        DefaultListModel<Let> model = new DefaultListModel<>();
+        obrada.getEntiteti().forEach(
+                (let) -> {
+                    model.addElement(let);
+                });
+
+        lista.setModel(model);
+        lista.repaint();
+
     }
 
     @Override
     protected boolean kontrola(Let entitet) {
-        return kontrolaDatumDolaska(entitet) && kontrolaDatumOdlaska(entitet);
+        return true;
     }
 
     @Override
